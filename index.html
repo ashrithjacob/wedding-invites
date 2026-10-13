@@ -179,6 +179,15 @@ h2{font-family:var(--display);font-style:italic;font-size:clamp(1.9rem,7vw,2.5re
   letter-spacing:.28em;line-height:1.9;color:var(--mist)}
 .shade-note::before,.shade-note::after{content:"";width:40px;height:1px;background:var(--zari);margin-inline:auto}
 
+/* Guest-only page */
+.unlock .btn{margin-top:24px}
+.guest-head{padding-top:40px}
+.guest-head .logo{width:96px;margin-bottom:18px}
+.back{display:inline-block;margin-bottom:28px;font-size:.72rem;text-transform:uppercase;letter-spacing:.22em;
+  color:var(--zari);text-decoration:none}
+.back:hover{color:var(--zari-soft)}
+.summary-actions{display:grid;gap:12px}
+
 /* Gallery */
 .gallery .photo{aspect-ratio:1;border-radius:2px}
 .gallery .photo:nth-child(3n+1){grid-column:span 2;aspect-ratio:16/10}
@@ -285,7 +294,7 @@ footer .contact{color:var(--mist);font-size:.88rem;margin:0}
   </div>
 </div>
 
-<main class="wrap">
+<main class="wrap" id="main-page">
 
   <!-- 1 · Hero (full-screen couple photo that drifts up and fades as you scroll) -->
   <section class="hero" id="hero">
@@ -413,26 +422,17 @@ footer .contact{color:var(--mist);font-size:.88rem;margin:0}
 
   <div class="zari"></div>
 
-  <!-- 6 · Colours of our day -->
-  <section class="colours">
-    <p class="eyebrow">Dress code</p>
-    <h2 id="colours-title"></h2>
-    <p class="subtitle" id="colours-sub"></p>
-    <div class="shades" id="shades"></div>
+  <!-- 6 · Guest-only teaser: dress code & photos open on the next page after an RSVP -->
+  <section class="unlock" id="unlock">
+    <p class="eyebrow">For our guests</p>
+    <h2>Dress code &amp; a few of our favourite moments</h2>
+    <p class="lede" id="unlock-text"></p>
+    <a class="btn" id="unlock-btn" href="#rsvp"></a>
   </section>
 
   <div class="zari"></div>
 
-  <!-- 7 · Gallery -->
-  <section class="gallery">
-    <p class="eyebrow">Moments</p>
-    <h2>A few of our favourites</h2>
-    <div class="grid" id="gallery"></div>
-  </section>
-
-  <div class="zari"></div>
-
-  <!-- 8 · Wishes wall -->
+  <!-- 7 · Wishes wall -->
   <section class="wish-wall" id="wishes">
     <p class="eyebrow">Wishes</p>
     <h2>Leave us a blessing</h2>
@@ -456,11 +456,49 @@ footer .contact{color:var(--mist);font-size:.88rem;margin:0}
 
   <div class="zari"></div>
 
-  <!-- 9 · Footer -->
+  <!-- 8 · Footer -->
   <footer>
     <div class="mono" data-mono></div>
     <p class="thanks">With love and gratitude</p>
     <p class="contact" data-t="contact"></p>
+  </footer>
+
+</main>
+
+<!-- Next page, shown at #for-guests once the guest has sent an RSVP -->
+<main class="wrap" id="guest-page" hidden>
+
+  <section class="guest-head">
+    <a class="back" href="#rsvp">&larr; Back to the invitation</a>
+    <p class="eyebrow">For our guests</p>
+    <div class="mono" data-mono></div>
+    <h2>Thank you for your RSVP</h2>
+    <p class="lede">Here's a little more to help you get ready for the day.</p>
+  </section>
+
+  <div class="zari"></div>
+
+  <!-- Colours of our day -->
+  <section class="colours">
+    <p class="eyebrow">Dress code</p>
+    <h2 id="colours-title"></h2>
+    <p class="subtitle" id="colours-sub"></p>
+    <div class="shades" id="shades"></div>
+  </section>
+
+  <div class="zari"></div>
+
+  <!-- Gallery -->
+  <section class="gallery">
+    <p class="eyebrow">Moments</p>
+    <h2>A few of our favourites</h2>
+    <div class="grid" id="gallery"></div>
+  </section>
+
+  <div class="zari"></div>
+
+  <footer>
+    <a class="btn ghost" href="#rsvp">Back to the invitation</a>
   </footer>
 
 </main>
@@ -553,7 +591,9 @@ if (CONFIG.photos.background) {
     let ticking = false;
     const drift = () => {
       ticking = false;
-      const h = hero.offsetHeight, y = Math.min(Math.max(scrollY, 0), h), p = y / h;
+      const h = hero.offsetHeight;
+      if (!h) return;                                   // hero hidden (guest page showing)
+      const y = Math.min(Math.max(scrollY, 0), h), p = y / h;
       heroBg.style.transform = `translate3d(0, ${y * 0.55}px, 0) scale(${1 + p * 0.12})`;
       heroBg.style.opacity = 1 - p * 0.95;
       heroInner.style.transform = `translate3d(0, ${y * 0.3}px, 0)`;
@@ -600,7 +640,7 @@ $("#open-rsvp").addEventListener("click", () => {
 function updateFab() {
   const r = $("#rsvp").getBoundingClientRect();
   const rsvpInView = r.top < innerHeight * 0.85 && r.bottom > innerHeight * 0.15;
-  $("#rsvp-fab").hidden = !gateOpen || rsvpInView || !$("#rsvp-done").hidden;
+  $("#rsvp-fab").hidden = !gateOpen || rsvpInView || !$("#rsvp-done").hidden || !$("#guest-page").hidden;
 }
 addEventListener("scroll", updateFab, { passive: true });
 $("#rsvp-fab").addEventListener("click", e => {
@@ -696,11 +736,15 @@ function showSummary(p) {
     <h3>${p.attending === "yes" ? "We can't wait to see you" : "You'll be missed"}</h3>
     <p class="thanks">Thank you for letting us know.</p>
     <dl>${rows.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>
-    <button class="btn ghost" type="button" id="rsvp-edit">Change my response</button>`;
+    <div class="summary-actions">
+      <a class="btn" href="#for-guests">See dress code &amp; photos</a>
+      <button class="btn ghost" type="button" id="rsvp-edit">Change my response</button>
+    </div>`;
   form.hidden = true;
   updateFab();
   $("#rsvp-done").hidden = false;
   $("#rsvp-edit").addEventListener("click", () => editRsvp(p));
+  updateUnlock();
 }
 function editRsvp(p) {
   form.name.value = p.name;
@@ -787,6 +831,29 @@ $("#shades").innerHTML = C.shades.map(sh => `
     <figcaption>${esc(sh.name)}</figcaption>
   </figure>`).join("")
   + (C.shades.length % 2 && C.note ? `<p class="shade-note">${esc(C.note)}</p>` : "");
+
+// ---- Guest page (#for-guests): dress code & gallery, opened once the guest has sent an RSVP ----
+function updateUnlock() {
+  const done = !!store.get("rsvp");
+  $("#unlock-text").textContent = done
+    ? "Thank you for your RSVP. The dress code and our photos are ready for you."
+    : "Send your RSVP above and we'll share the dress code and a few of our favourite photos with you.";
+  $("#unlock-btn").textContent = done ? "See dress code & photos" : "RSVP to see them";
+  $("#unlock-btn").href = done ? "#for-guests" : "#rsvp";
+}
+function route() {
+  const want = location.hash === "#for-guests";
+  const show = want && !!store.get("rsvp");
+  if (want && !show) history.replaceState(null, "", location.pathname + location.search + "#rsvp");
+  $("#main-page").hidden = show;
+  $("#guest-page").hidden = !show;
+  if (show) scrollTo({ top: 0, behavior: "instant" });
+  else if (location.hash.length > 1) { try { $(location.hash)?.scrollIntoView(); } catch {} }
+  updateUnlock();
+  updateFab();
+}
+addEventListener("hashchange", route);
+route();
 
 // Countdown (target carries its IST offset, so it is correct in any timezone)
 const target = new Date(CONFIG.weddingAt).getTime();
