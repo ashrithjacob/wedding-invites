@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#f4e7c8">
+<title>Ashrith & Veena · 28 December 2026</title>
+<meta name="description" content="You're invited to the wedding of Ashrith & Veena · Monday, 28th December 2026, 4:00 PM · Jungle Hut, Nelamangala, Bangalore">
+<!-- Link preview (WhatsApp etc.). Once the site is live, replace https://SITE-URL/ with its real address:
+     WhatsApp only shows the image when og:image is a full absolute URL. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ashrith & Veena · Wedding Invitation">
+<meta property="og:description" content="Monday, 28th December 2026 · 4:00 PM · Jungle Hut, Nelamangala, Bangalore">
+<meta property="og:url" content="https://SITE-URL/">
+<meta property="og:image" content="https://SITE-URL/og-thumb.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ashrith & Veena monogram · 28th December, 2026">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --silk:#f4e7c8;--silk-2:#ecdbb3;--silk-3:#e2cb98;--glow:#fbf4e2;   /* cream-gold ground, panels, placeholders, top glow */
+  --zari:#8a6015;--zari-soft:#6f4c0e;                               /* antique gold; deeper gold for hover/highlight */
+  --jasmine:#173f3a;--mist:#52625a;--kumkum:#a8344a;                /* peacock-ink text, muted text, errors */
+  --display:"Bodoni Moda",Didot,Georgia,serif;
+  --body:"Jost","Avenir Next",system-ui,sans-serif;
+  --gutter:20px;
+  color-scheme:light;
+}
+@media (max-width:420px){:root{--gutter:16px}}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;color:var(--jasmine);font-family:var(--body);font-weight:300;font-size:1rem;line-height:1.6;
+  background:var(--silk);background-image:radial-gradient(120% 60% at 50% 0%,var(--glow) 0%,transparent 60%);
+  background-repeat:no-repeat;min-height:100vh}
+body.locked{overflow:hidden}
+img{max-width:100%}
+:focus-visible{outline:2px solid var(--zari-soft);outline-offset:3px}
+h1,h2,h3{margin:0;font-weight:400}
+
+.wrap{max-width:560px;margin:0 auto;padding-inline:var(--gutter)}
+section{padding-block:56px;text-align:center}
+.eyebrow{font-size:.72rem;text-transform:uppercase;letter-spacing:.32em;color:var(--zari);font-weight:400;margin:0 0 18px}
+h2{font-family:var(--display);font-style:italic;font-size:clamp(1.9rem,7vw,2.5rem);line-height:1.15;text-wrap:balance;margin-bottom:16px}
+.lede{color:var(--mist);max-width:34ch;margin:0 auto;text-wrap:pretty}
+
+/* Zari border band */
+.zari{height:14px;margin-inline:-20px;           /* = side gutter, so it bleeds edge to edge */
+  background:
+   repeating-linear-gradient(90deg,var(--zari) 0 2px,transparent 2px 10px) center/100% 4px no-repeat, /* stitch row */
+   linear-gradient(var(--zari),var(--zari)) top/100% 1px no-repeat,                                   /* top rule */
+   linear-gradient(var(--zari),var(--zari)) bottom/100% 1px no-repeat,                                /* bottom rule */
+   repeating-linear-gradient(45deg,transparent 0 6px,color-mix(in srgb,var(--zari) 35%,transparent) 6px 7px); /* weave */
+}
+@media (max-width:420px){.zari{margin-inline:-16px}}
+
+/* Monogram */
+.mono{font-family:var(--display);font-size:3.2rem;font-style:italic;color:var(--zari-soft);line-height:1}
+.mono span{font-style:normal;font-size:1.6rem;color:var(--zari);margin-inline:.35em;vertical-align:middle}
+
+/* Buttons */
+.btn{display:inline-block;font:500 .78rem/1 var(--body);text-transform:uppercase;letter-spacing:.18em;
+  padding:16px 26px;border-radius:2px;border:1px solid var(--zari);background:var(--zari);color:var(--silk);
+  cursor:pointer;text-decoration:none;transition:background .2s,border-color .2s,color .2s}
+.btn:hover{background:var(--zari-soft);border-color:var(--zari-soft)}
+.btn.ghost{background:transparent;color:var(--zari)}
+.btn.ghost:hover{background:transparent;color:var(--zari-soft);border-color:var(--zari-soft)}
+.btn:disabled{opacity:.55;cursor:default}
+
+/* Opening screen */
+.gate{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:24px;
+  background:var(--silk);background-image:radial-gradient(120% 70% at 50% 30%,var(--glow) 0%,transparent 70%);
+  transition:opacity .9s ease,visibility .9s}
+.gate.gone{opacity:0;visibility:hidden}
+.gate-card{width:min(360px,100%);border:1px solid var(--zari);padding:44px 28px;
+  outline:1px solid color-mix(in srgb,var(--zari) 45%,transparent);outline-offset:6px;text-align:center}
+/* Couple's logo: logo.png is used as a mask so it takes the gold colour */
+.logo{display:block;margin-inline:auto;aspect-ratio:541/600;background:var(--zari-soft);
+  -webkit-mask:var(--logo) center/contain no-repeat;mask:var(--logo) center/contain no-repeat}
+.gate-card .logo{width:140px;margin-block:4px 26px}
+.gate-card .mono{margin:6px 0 28px}
+.gate-to{color:var(--mist);margin:0 0 4px;font-size:.92rem}
+.gate-guest{font-family:var(--display);font-style:italic;font-size:1.6rem;line-height:1.25;margin:0 0 32px;
+  color:var(--jasmine);overflow-wrap:anywhere}
+
+/* Photo frames */
+.photo{position:relative;overflow:hidden;max-width:100%;
+  background:linear-gradient(160deg,var(--silk-3),var(--silk-2));
+  border:1px solid color-mix(in srgb,var(--zari) 55%,transparent)}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.photo .ph{position:absolute;inset:0;display:grid;place-items:center;color:var(--mist);
+  font-size:.72rem;letter-spacing:.24em;text-transform:uppercase}
+.hero .photo{aspect-ratio:4/5;width:min(340px,100%);margin:0 auto 36px;border-radius:170px 170px 4px 4px} /* arch */
+
+/* Hero */
+.names{margin:0 0 22px}
+.names .logo{width:min(220px,62%)}
+.names .mono{font-size:clamp(3rem,15vw,4.6rem)}
+.hero-date{font-family:var(--display);font-size:1.25rem;letter-spacing:.12em;color:var(--zari-soft);margin:0 0 4px}
+.hero-place{text-wrap:balance;font-size:.8rem;text-transform:uppercase;letter-spacing:.24em;color:var(--mist);margin:0}
+
+.hero-place a{color:inherit;text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--zari) 50%,transparent);padding-bottom:2px}
+.hero-place a span{white-space:nowrap}
+.hero-place a:hover{color:var(--zari-soft)}
+
+/* Events */
+.events{display:grid;gap:18px;margin-top:28px}
+.event{background:var(--silk-2);border:1px solid color-mix(in srgb,var(--zari) 40%,transparent);border-radius:2px;padding:32px 22px}
+.event h3{font-family:var(--display);font-style:italic;font-size:1.6rem;color:var(--zari-soft);margin-bottom:22px}
+.event dl{margin:0 0 26px;display:grid;gap:16px}
+.event dt{font-size:.66rem;text-transform:uppercase;letter-spacing:.28em;color:var(--zari);margin-bottom:2px}
+.event dd{margin:0;font-family:var(--display);font-size:1.2rem;line-height:1.35}
+.event dd small{display:block;font-family:var(--body);font-size:.9rem;color:var(--mist);margin-top:4px}
+
+/* Countdown */
+.count{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:36px}
+.count div{border-top:1px solid var(--zari);padding-top:14px}
+.count b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(1.9rem,9vw,2.6rem);line-height:1;
+  font-variant-numeric:tabular-nums lining-nums}
+.count small{display:block;margin-top:8px;font-size:.66rem;text-transform:uppercase;letter-spacing:.22em;color:var(--mist)}
+
+/* Couple */
+.couple .photo{aspect-ratio:3/4;border-radius:2px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.person h3{font-family:var(--display);font-style:italic;font-size:1.45rem;line-height:1.2;margin:18px 0 6px}
+.person p{margin:0;font-size:.86rem;line-height:1.5;color:var(--mist)}
+
+/* Colours of our day */
+.subtitle{font-family:var(--display);font-size:1.15rem;letter-spacing:.06em;color:var(--zari-soft);margin:-6px 0 0}
+.shades{display:grid;grid-template-columns:1fr 1fr;gap:26px 16px;margin-top:32px}
+.shade{margin:0}
+.shade-arch{position:relative;aspect-ratio:3/4;border-radius:999px 999px 4px 4px;overflow:hidden;
+  border:1px solid color-mix(in srgb,var(--zari) 45%,transparent);
+  background:linear-gradient(180deg,color-mix(in srgb,var(--c) 70%,#fff),var(--c))}
+.shade-arch img{width:100%;height:100%;object-fit:cover;display:block}
+.shade-dot{position:absolute;left:10px;top:28%;width:38px;height:38px;border-radius:50%;background:var(--c);
+  border:1px solid color-mix(in srgb,var(--zari) 45%,transparent);box-shadow:0 0 0 3px color-mix(in srgb,#fff 60%,transparent)}
+.shade-arch:not(:has(img)) .shade-dot{display:none}
+.shade figcaption{margin-top:12px;font-size:.7rem;text-transform:uppercase;letter-spacing:.26em;color:var(--jasmine)}
+.shade-note{display:grid;place-content:center;gap:14px;padding:12px;font-size:.66rem;text-transform:uppercase;
+  letter-spacing:.28em;line-height:1.9;color:var(--mist)}
+.shade-note::before,.shade-note::after{content:"";width:40px;height:1px;background:var(--zari);margin-inline:auto}
+
+/* Gallery */
+.gallery .photo{aspect-ratio:1;border-radius:2px}
+.gallery .photo:nth-child(3n+1){grid-column:span 2;aspect-ratio:16/10}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:28px}
+
+/* Preview banner */
+.preview{margin:16px 0 0;padding:10px 14px;font-size:.8rem;line-height:1.5;text-align:center;color:var(--mist);
+  background:var(--silk-2);border:1px dashed color-mix(in srgb,var(--zari) 55%,transparent);border-radius:2px}
+
+/* Forms */
+.form{display:grid;gap:22px;margin-top:32px;text-align:left}
+.field{display:grid;gap:8px}
+.label{font-size:.68rem;text-transform:uppercase;letter-spacing:.24em;color:var(--zari);font-weight:500}
+.label em{font-style:normal;text-transform:none;letter-spacing:.02em;color:var(--mist);font-weight:300}
+input[type=text],input[type=tel],textarea{width:100%;font:400 16px/1.4 var(--body);color:var(--jasmine);
+  background:var(--silk-2);border:1px solid color-mix(in srgb,var(--zari) 40%,transparent);border-radius:2px;padding:13px 14px}
+textarea{min-height:96px;resize:vertical}
+input::placeholder,textarea::placeholder{color:color-mix(in srgb,var(--mist) 75%,transparent)}
+input:hover,textarea:hover{border-color:color-mix(in srgb,var(--zari) 70%,transparent)}
+input:focus,textarea:focus{outline:none;border-color:var(--zari);background:var(--glow)}
+.toggle{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--zari);border-radius:2px}
+.toggle input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.toggle label{padding:14px 10px;text-align:center;cursor:pointer;font-size:.95rem;color:var(--zari-soft);transition:background .2s,color .2s}
+.toggle input:checked+label{background:var(--zari);color:var(--silk)}
+.toggle input:focus-visible+label{outline:2px solid var(--zari-soft);outline-offset:2px}
+.counts{display:grid;gap:0;border-top:1px solid color-mix(in srgb,var(--zari) 30%,transparent)}
+.step{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;
+  border-bottom:1px solid color-mix(in srgb,var(--zari) 30%,transparent)}
+.step-name{font-family:var(--display);font-size:1.25rem;line-height:1.2}
+.step-name small{display:block;font-family:var(--body);font-size:.8rem;color:var(--mist)}
+.step-ctl{display:flex;align-items:center;gap:6px}
+.step-ctl button{width:40px;height:40px;border-radius:50%;border:1px solid var(--zari);background:transparent;
+  color:var(--zari-soft);font:400 1.3rem/1 var(--body);cursor:pointer;display:grid;place-items:center;padding:0}
+.step-ctl button:hover:not(:disabled){background:var(--silk-2)}
+.step-ctl button:disabled{opacity:.3;cursor:default}
+.step-ctl output{min-width:2.4ch;text-align:center;font-family:var(--display);font-size:1.6rem;font-variant-numeric:tabular-nums lining-nums}
+.total{margin:16px 0 0;text-align:center;font-family:var(--display);font-style:italic;font-size:1.3rem;color:var(--zari-soft)}
+.names-list{display:grid;gap:10px}
+.form .btn{width:100%;padding-block:18px}
+.err{margin:0;color:var(--kumkum);font-size:.9rem;text-align:center}
+
+/* RSVP summary */
+.summary{margin-top:32px;background:var(--silk-2);border:1px solid color-mix(in srgb,var(--zari) 40%,transparent);
+  border-radius:2px;padding:30px 22px;text-align:left}
+.summary h3{font-family:var(--display);font-style:italic;font-size:1.6rem;color:var(--zari-soft);text-align:center;margin-bottom:6px}
+.summary .thanks{text-align:center;color:var(--mist);margin:0 0 22px}
+.summary dl{margin:0 0 26px}
+.summary dl div{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid color-mix(in srgb,var(--zari) 25%,transparent)}
+.summary dt{font-size:.68rem;text-transform:uppercase;letter-spacing:.24em;color:var(--zari);padding-top:4px;flex:none}
+.summary dd{margin:0;text-align:right;font-family:var(--display);font-size:1.1rem;overflow-wrap:anywhere}
+.summary .btn{width:100%}
+
+/* Wishes */
+.wishes{display:grid;gap:14px;margin-top:36px;text-align:left}
+.wish{background:var(--silk-2);border-left:2px solid var(--zari);padding:18px}
+.wish p{margin:0 0 12px;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6}
+.wish footer{display:flex;justify-content:space-between;gap:12px;padding:0;text-align:left;
+  font-size:.68rem;text-transform:uppercase;letter-spacing:.2em}
+.wish .who{color:var(--zari);font-weight:500;overflow-wrap:anywhere}
+.wish time{color:var(--mist);flex:none}
+.wishes-note{margin:0;text-align:center;color:var(--mist);font-style:italic}
+
+[hidden]{display:none!important}
+
+/* Footer */
+footer{padding:56px 0 96px;text-align:center}
+footer .mono{margin-bottom:18px}
+footer .logo{width:110px;margin-bottom:20px}
+footer .thanks{font-family:var(--display);font-style:italic;font-size:1.3rem;margin:0 0 14px}
+footer .contact{color:var(--mist);font-size:.88rem;margin:0}
+
+/* Music button */
+#music{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));width:48px;height:48px;border-radius:50%;
+  background:var(--silk-2);border:1px solid var(--zari);color:var(--zari-soft);display:grid;place-items:center;
+  cursor:pointer;padding:0;z-index:40}
+#music[hidden]{display:none}
+#music svg{width:20px;height:20px}
+#music.on svg{animation:spin 6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+@media (prefers-reduced-motion:reduce){
+  .gate{transition:none}
+  #music.on svg{animation:none}
+}
+</style>
+</head>
+<body class="locked">
+
+<!-- 0 · Opening screen -->
+<div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-guest">
+  <div class="gate-card">
+    <p class="eyebrow">Wedding Invitation</p>
+    <div class="mono" data-mono></div>
+    <p class="gate-to">Lovingly invited</p>
+    <p class="gate-guest" id="gate-guest"></p>
+    <button class="btn" id="open">Open invitation</button>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <p class="preview" id="preview" hidden>Preview mode: RSVPs and wishes are only saved in this browser until the Google Sheet is connected.</p>
+
+  <!-- 1 · Hero -->
+  <section class="hero">
+    <div class="photo" data-photo="hero" data-label="Your photo"></div>
+    <p class="eyebrow">Together with their families</p>
+    <h1 class="names"><span class="mono" data-mono></span></h1>
+    <p class="hero-date" data-t="dateShort"></p>
+    <p class="hero-place"><a id="hero-map" target="_blank" rel="noopener"></a></p>
+  </section>
+
+  <div class="zari"></div>
+
+  <!-- 2 · Invitation + Countdown -->
+  <section class="invite">
+    <h2>Join us as we begin forever</h2>
+    <p class="lede">With joy in our hearts, we invite you to celebrate our wedding and bless us as we begin this new chapter together.</p>
+    <div class="count" role="timer" aria-label="Countdown to the wedding">
+      <div><b id="cd-d">0</b><small>Days</small></div>
+      <div><b id="cd-h">0</b><small>Hours</small></div>
+      <div><b id="cd-m">0</b><small>Minutes</small></div>
+      <div><b id="cd-s">0</b><small>Seconds</small></div>
+    </div>
+  </section>
+
+  <div class="zari"></div>
+
+  <!-- 3 · The couple -->
+  <section class="couple">
+    <p class="eyebrow">The couple</p>
+    <h2>Two families, one celebration</h2>
+    <div class="pair">
+      <div class="person">
+        <div class="photo" data-photo="groom" data-label="Groom"></div>
+        <h3 data-t="groomFull"></h3>
+        <p data-t="groomLine"></p>
+      </div>
+      <div class="person">
+        <div class="photo" data-photo="bride" data-label="Bride"></div>
+        <h3 data-t="brideFull"></h3>
+        <p data-t="brideLine"></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="zari"></div>
+
+  <!-- 4 · When & where -->
+  <section class="where">
+    <p class="eyebrow">When &amp; where</p>
+    <h2>Celebrate with us</h2>
+    <div class="events" id="events"></div>
+  </section>
+
+  <div class="zari"></div>
+
+  <!-- 4b · Colours of our day -->
+  <section class="colours">
+    <p class="eyebrow">Dress code</p>
+    <h2 id="colours-title"></h2>
+    <p class="subtitle" id="colours-sub"></p>
+    <div class="shades" id="shades"></div>
+  </section>
+
+  <div class="zari"></div>
+
+  <!-- 5 · Gallery -->
+  <section class="gallery">
+    <p class="eyebrow">Moments</p>
+    <h2>A few of our favourites</h2>
+    <div class="grid" id="gallery"></div>
+  </section>
+
+  <div class="zari"></div>
+
+  <!-- 6 · RSVP -->
+  <section class="rsvp" id="rsvp">
+    <p class="eyebrow">RSVP</p>
+    <h2>Will you join us?</h2>
+    <p class="lede">Kindly let us know so we can plan for everyone.</p>
+
+    <form class="form" id="rsvp-form">
+      <label class="field">
+        <span class="label">Your name</span>
+        <input type="text" name="name" maxlength="80" required autocomplete="name">
+      </label>
+      <label class="field">
+        <span class="label">Phone</span>
+        <input type="tel" name="phone" maxlength="20" autocomplete="tel" inputmode="tel">
+      </label>
+      <fieldset class="field" style="border:0;padding:0;margin:0">
+        <legend class="label" style="margin-bottom:8px">Will you attend?</legend>
+        <div class="toggle">
+          <input type="radio" name="attending" id="att-yes" value="yes" checked><label for="att-yes">Joyfully, yes</label>
+          <input type="radio" name="attending" id="att-no" value="no"><label for="att-no">Sadly, no</label>
+        </div>
+      </fieldset>
+
+      <div id="count-block">
+        <div class="counts">
+          <div class="step">
+            <div class="step-name">Adults<small>Including you</small></div>
+            <div class="step-ctl">
+              <button type="button" data-step="adults" data-d="-1" aria-label="Fewer adults">&minus;</button>
+              <output id="adults" aria-live="polite">1</output>
+              <button type="button" data-step="adults" data-d="1" aria-label="More adults">+</button>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-name">Children<small>Under 12</small></div>
+            <div class="step-ctl">
+              <button type="button" data-step="children" data-d="-1" aria-label="Fewer children">&minus;</button>
+              <output id="children" aria-live="polite">0</output>
+              <button type="button" data-step="children" data-d="1" aria-label="More children">+</button>
+            </div>
+          </div>
+        </div>
+        <p class="total" id="total"></p>
+      </div>
+
+      <div class="field" id="names-block">
+        <span class="label">Family members coming with you <em>(optional)</em></span>
+        <div class="names-list" id="names"></div>
+      </div>
+
+      <label class="field">
+        <span class="label">Note <em>(optional)</em></span>
+        <textarea name="message" maxlength="500" placeholder="Dietary needs, travel plans…"></textarea>
+      </label>
+
+      <p class="err" id="rsvp-err" role="alert" hidden>Your RSVP didn't go through. Check your connection and try again.</p>
+      <button class="btn" type="submit" id="rsvp-btn">Send RSVP</button>
+    </form>
+
+    <div class="summary" id="rsvp-done" hidden></div>
+  </section>
+
+  <div class="zari"></div>
+
+  <!-- 7 · Wishes wall -->
+  <section class="wish-wall" id="wishes">
+    <p class="eyebrow">Wishes</p>
+    <h2>Leave us a blessing</h2>
+    <p class="lede">A few words from you will mean the world to us.</p>
+
+    <form class="form" id="wish-form">
+      <label class="field">
+        <span class="label">Your name</span>
+        <input type="text" name="name" maxlength="60" required autocomplete="name">
+      </label>
+      <label class="field">
+        <span class="label">Your wish</span>
+        <textarea name="message" maxlength="400" required></textarea>
+      </label>
+      <p class="err" id="wish-err" role="alert" hidden>Your wish didn't go through. Check your connection and try again.</p>
+      <button class="btn" type="submit" id="wish-btn">Post wish</button>
+    </form>
+
+    <div class="wishes" id="wish-list" aria-live="polite"></div>
+  </section>
+
+  <div class="zari"></div>
+
+  <!-- 8 · Footer -->
+  <footer>
+    <div class="mono" data-mono></div>
+    <p class="thanks">With love and gratitude</p>
+    <p class="contact" data-t="contact"></p>
+  </footer>
+
+</main>
+
+<button id="music" aria-label="Play music" hidden>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/>
+  </svg>
+</button>
+
+<script>
+const CONFIG = {
+  groom: "Ashrith",          groomFull: "Ashrith Jacob", groomLine: "Son of [Father] & [Mother]",
+  bride: "Veena",            brideFull: "Veena",         brideLine: "Daughter of [Father] & [Mother]",
+  weddingAt: "2026-12-28T16:00:00+05:30",   // 4:00 PM IST; countdown target
+  dateShort: "28th December, 2026",
+  placeShort: "Jungle Hut · Nelamangala · Bangalore",
+  events: [{
+    name: "Wedding Ceremony",
+    date: "Monday, 28 December 2026",
+    time: "4:00 PM",
+    venue: "Jungle Hut",
+    address: "82, Bhavikere, Nelamangala, Bangalore",
+    map: "https://maps.app.goo.gl/Th7zHbkHHEFaGQb67"
+  }],                                          // more events (reception etc.) render as more cards
+  colours: {                                   // dress-code palette; shades below are placeholders until finalised
+    title: "The colours of our day",
+    subtitle: "Soft · Warm · Romantic",
+    note: "Different shades, same beautiful energy",
+    shades: [                                  // img: optional picture shown inside the arch; "" → plain colour
+      { name: "Ivory",         hex: "#f6eddc", img: "" },
+      { name: "Off-white",     hex: "#f6eedf", img: "" },
+      { name: "Butter yellow", hex: "#f9e4b3", img: "" },
+      { name: "Champagne",     hex: "#ead2ba", img: "" },
+      { name: "Pastel beige",  hex: "#e9cdbb", img: "" }
+    ]
+  },
+  logo: "logo.png",                           // couple's monogram; "" → text monogram "A & V"
+  photos: { hero: "", groom: "", bride: "", gallery: ["", "", "", "", "", ""] },  // "" → placeholder frame
+  song: "",                                    // e.g. "song.mp3"; "" hides the music button
+  endpoint: "",                                // Apps Script /exec URL; "" → preview mode (localStorage)
+  contact: "Questions? Call or WhatsApp [name] on [number]"
+};
+
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+// Plain text slots
+$$("[data-t]").forEach(el => { el.textContent = CONFIG[el.dataset.t]; });
+
+// Monogram: the couple's logo, or the "A & V" text monogram when no logo is set
+$$("[data-mono]").forEach(el => {
+  if (CONFIG.logo) {
+    el.className = "logo";
+    el.setAttribute("role", "img");
+    el.setAttribute("aria-label", `${CONFIG.groom} & ${CONFIG.bride}`);
+    el.style.setProperty("--logo", `url("${encodeURI(CONFIG.logo)}")`);
+  } else {
+    el.innerHTML = `${esc(CONFIG.groom[0])}<span>&amp;</span>${esc(CONFIG.bride[0])}`;
+  }
+});
+
+// Gallery frames
+$("#gallery").innerHTML = CONFIG.photos.gallery
+  .map((_, i) => `<div class="photo" data-photo="g${i}" data-label="Photo ${i + 1}"></div>`).join("");
+
+// Photo frames: image if set, otherwise a labelled placeholder
+function fillPhoto(el, src, label) {
+  el.innerHTML = src
+    ? `<img src="${esc(src)}" alt="${esc(label)}" loading="lazy">`
+    : `<span class="ph">${esc(label)}</span>`;
+}
+$$("[data-photo]").forEach(el => {
+  const key = el.dataset.photo;
+  const src = key[0] === "g" && key !== "groom" ? CONFIG.photos.gallery[+key.slice(1)] : CONFIG.photos[key];
+  fillPhoto(el, src, el.dataset.label);
+});
+
+// Music: loads only on tap, hidden when no song is set
+const music = $("#music");
+let audio = null;
+if (CONFIG.song) {
+  audio = new Audio(CONFIG.song);
+  audio.preload = "none";
+  audio.loop = true;
+  music.hidden = false;
+  audio.addEventListener("play", () => { music.classList.add("on"); music.setAttribute("aria-label", "Pause music"); });
+  audio.addEventListener("pause", () => { music.classList.remove("on"); music.setAttribute("aria-label", "Play music"); });
+  music.addEventListener("click", () => audio.paused ? audio.play().catch(() => {}) : audio.pause());
+}
+
+// Opening screen: guest name from ?to=
+const guest = (new URLSearchParams(location.search).get("to") || "").trim().slice(0, 60) || "Family & Friends";
+$("#gate-guest").textContent = guest;
+$("#open").addEventListener("click", () => {
+  $("#gate").classList.add("gone");
+  document.body.classList.remove("locked");
+  if (audio) audio.play().catch(() => {});
+});
+
+// Map link on hero place line
+$("#hero-map").href = CONFIG.events[0].map;
+$("#hero-map").innerHTML = CONFIG.placeShort.split(" · ").map(p => `<span>${esc(p)}</span>`).join(" · ");  // break only between places
+
+// Event cards
+$("#events").innerHTML = CONFIG.events.map(ev => `
+  <article class="event">
+    <h3>${esc(ev.name)}</h3>
+    <dl>
+      <div><dt>Date</dt><dd>${esc(ev.date)}</dd></div>
+      <div><dt>Time</dt><dd>${esc(ev.time)}</dd></div>
+      <div><dt>Venue</dt><dd>${esc(ev.venue)}<small>${esc(ev.address)}</small></dd></div>
+    </dl>
+    <a class="btn" href="${esc(ev.map)}" target="_blank" rel="noopener">Get directions</a>
+  </article>`).join("");
+
+// Storage (prefix av_); every access guarded so private mode can't break the page
+const store = {
+  get(k) { try { return JSON.parse(localStorage.getItem("av_" + k)); } catch { return null; } },
+  set(k, v) { try { localStorage.setItem("av_" + k, JSON.stringify(v)); } catch {} }
+};
+
+// Backend: Apps Script when an endpoint is set, otherwise preview mode (this browser only)
+const preview = !CONFIG.endpoint;
+$("#preview").hidden = !preview;
+function send(payload) {
+  if (preview) {
+    if (payload.type === "wish") store.set("wishes", [payload, ...(store.get("wishes") || [])].slice(0, 200));
+    return Promise.resolve({ ok: true });
+  }
+  return fetch(CONFIG.endpoint, { method: "POST", body: JSON.stringify(payload) })  // no headers → text/plain, no preflight
+    .then(r => r.json())
+    .then(j => { if (!j.ok) throw new Error(j.error || "Request failed"); return j; });
+}
+
+// ---- RSVP ----
+const uuid = () => crypto.randomUUID ? crypto.randomUUID()
+  : "10000000-1000-4000-8000-100000000000".replace(/[018]/g, c => (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16));
+let guestId = store.get("id");
+if (!guestId) { guestId = uuid(); store.set("id", guestId); }
+
+const form = $("#rsvp-form");
+const LIMITS = { adults: [1, 15], children: [0, 10] };
+const rsvp = { adults: 1, children: 0, names: [] };   // names[i] is "Guest i+2"; kept when counts shrink
+
+const attending = () => form.attending.value === "yes";
+function renderCounts() {
+  for (const k of ["adults", "children"]) {
+    $("#" + k).textContent = rsvp[k];
+    $(`[data-step=${k}][data-d="-1"]`).disabled = rsvp[k] <= LIMITS[k][0];
+    $(`[data-step=${k}][data-d="1"]`).disabled = rsvp[k] >= LIMITS[k][1];
+  }
+  const total = rsvp.adults + rsvp.children;
+  $("#total").textContent = `${total} ${total === 1 ? "guest" : "guests"} in total`;
+  $("#count-block").hidden = !attending();
+  $("#names-block").hidden = !attending() || total < 2;
+  const box = $("#names");
+  while (box.children.length < total - 1) {
+    const i = box.children.length;
+    const input = document.createElement("input");
+    Object.assign(input, { type: "text", maxLength: 60, placeholder: `Guest ${i + 2} name`, value: rsvp.names[i] || "" });
+    input.setAttribute("aria-label", `Guest ${i + 2} name`);
+    input.addEventListener("input", () => { rsvp.names[i] = input.value; });
+    box.append(input);
+  }
+  while (box.children.length > Math.max(0, total - 1)) box.lastElementChild.remove();
+}
+$$("[data-step]").forEach(b => b.addEventListener("click", () => {
+  const k = b.dataset.step, [lo, hi] = LIMITS[k];
+  rsvp[k] = Math.min(hi, Math.max(lo, rsvp[k] + +b.dataset.d));
+  renderCounts();
+}));
+$$("input[name=attending]").forEach(r => r.addEventListener("change", renderCounts));
+
+function showSummary(p) {
+  const rows = [["Name", p.name], ["Attending", p.attending === "yes" ? "Joyfully, yes" : "Sadly, no"]];
+  if (p.attending === "yes") {
+    rows.push(["Adults", p.adults], ["Children", p.children], ["Total", p.total]);
+    if (p.guests.length) rows.push(["With", p.guests.join(", ")]);
+  }
+  $("#rsvp-done").innerHTML = `
+    <h3>${p.attending === "yes" ? "We can't wait to see you" : "You'll be missed"}</h3>
+    <p class="thanks">Thank you for letting us know.</p>
+    <dl>${rows.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>
+    <button class="btn ghost" type="button" id="rsvp-edit">Change my response</button>`;
+  form.hidden = true;
+  $("#rsvp-done").hidden = false;
+  $("#rsvp-edit").addEventListener("click", () => editRsvp(p));
+}
+function editRsvp(p) {
+  form.name.value = p.name;
+  form.phone.value = p.phone;
+  form.message.value = p.message;
+  $("#att-" + p.attending).checked = true;
+  if (p.attending === "yes") {
+    rsvp.adults = p.adults; rsvp.children = p.children; rsvp.names = [...p.guests];
+    $("#names").innerHTML = "";
+  }
+  renderCounts();
+  $("#rsvp-done").hidden = true;
+  form.hidden = false;
+  form.name.focus();
+}
+
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  if (!form.reportValidity()) return;
+  const yes = attending();
+  const adults = yes ? rsvp.adults : 0, children = yes ? rsvp.children : 0;
+  const payload = {
+    type: "rsvp", id: guestId,
+    name: form.name.value.trim(), phone: form.phone.value.trim(),
+    attending: yes ? "yes" : "no", adults, children, total: adults + children,
+    guests: yes ? rsvp.names.slice(0, adults + children - 1).map(n => (n || "").trim()).filter(Boolean) : [],
+    message: form.message.value.trim()
+  };
+  const btn = $("#rsvp-btn");
+  btn.disabled = true; btn.textContent = "Sending…";
+  $("#rsvp-err").hidden = true;
+  send(payload)
+    .then(() => { store.set("rsvp", payload); showSummary(payload); })
+    .catch(() => { $("#rsvp-err").hidden = false; })
+    .finally(() => { btn.disabled = false; btn.textContent = "Send RSVP"; });
+});
+
+renderCounts();
+const savedRsvp = store.get("rsvp");
+if (savedRsvp) showSummary(savedRsvp);
+
+// ---- Wishes wall ----
+const wishForm = $("#wish-form"), wishList = $("#wish-list");
+const fmtDate = iso => { const d = new Date(iso); return isNaN(d) ? "" : d.toLocaleDateString("en-IN", { day: "numeric", month: "short" }); };
+function loadWishes() {
+  const get = preview
+    ? Promise.resolve({ ok: true, wishes: store.get("wishes") || [] })
+    : fetch(CONFIG.endpoint + "?action=wishes").then(r => r.json());
+  return get.then(j => {
+    if (!j.ok) throw new Error(j.error);
+    wishList.innerHTML = j.wishes.length
+      ? j.wishes.map(w => `<article class="wish"><p>${esc(w.message)}</p>
+          <footer><span class="who">${esc(w.name)}</span><time datetime="${esc(w.at)}">${esc(fmtDate(w.at))}</time></footer></article>`).join("")
+      : `<p class="wishes-note">Wishes from family and friends will appear here. Be the first to write one.</p>`;
+  }).catch(() => {
+    wishList.innerHTML = `<p class="wishes-note">Wishes couldn't load right now. Refresh to try again.</p>`;
+  });
+}
+wishForm.addEventListener("submit", e => {
+  e.preventDefault();
+  const name = wishForm.elements.namedItem("name"), msg = wishForm.elements.namedItem("message");
+  name.value = name.value.trim(); msg.value = msg.value.trim();
+  if (!wishForm.reportValidity()) return;
+  const btn = $("#wish-btn");
+  btn.disabled = true; btn.textContent = "Posting…";
+  $("#wish-err").hidden = true;
+  send({ type: "wish", name: name.value, message: msg.value, at: new Date().toISOString() })
+    .then(() => { msg.value = ""; return loadWishes(); })
+    .catch(() => { $("#wish-err").hidden = false; })
+    .finally(() => { btn.disabled = false; btn.textContent = "Post wish"; });
+});
+loadWishes();
+
+// Colours of our day: one arch per shade; a note fills the last cell when the count is odd
+const C = CONFIG.colours;
+$("#colours-title").textContent = C.title;
+$("#colours-sub").textContent = C.subtitle;
+$("#shades").innerHTML = C.shades.map(sh => `
+  <figure class="shade">
+    <div class="shade-arch" style="--c:${esc(sh.hex)}">
+      ${sh.img ? `<img src="${esc(sh.img)}" alt="${esc(sh.name)} outfit" loading="lazy"><span class="shade-dot"></span>` : ""}
+    </div>
+    <figcaption>${esc(sh.name)}</figcaption>
+  </figure>`).join("")
+  + (C.shades.length % 2 && C.note ? `<p class="shade-note">${esc(C.note)}</p>` : "");
+
+// Countdown (target carries its IST offset, so it is correct in any timezone)
+const target = new Date(CONFIG.weddingAt).getTime();
+function tick() {
+  let s = Math.max(0, Math.floor((target - Date.now()) / 1000));
+  const d = Math.floor(s / 86400); s %= 86400;
+  const h = Math.floor(s / 3600); s %= 3600;
+  const m = Math.floor(s / 60); s %= 60;
+  $("#cd-d").textContent = d;
+  $("#cd-h").textContent = String(h).padStart(2, "0");
+  $("#cd-m").textContent = String(m).padStart(2, "0");
+  $("#cd-s").textContent = String(s).padStart(2, "0");
+}
+tick();
+setInterval(tick, 1000);
+</script>
+</body>
+</html>
