@@ -81,6 +81,7 @@ h2{font-family:var(--display);font-style:italic;font-size:clamp(1.9rem,7vw,2.5re
 /* Couple's logo: logo.png is used as a mask so it takes the gold colour */
 .logo{display:block;margin-inline:auto;aspect-ratio:541/600;background:var(--zari-soft);
   -webkit-mask:var(--logo) center/contain no-repeat;mask:var(--logo) center/contain no-repeat}
+.gate-actions{display:grid;gap:12px;width:min(240px,100%);margin-inline:auto}
 .gate-card .logo{width:140px;margin-block:4px 26px}
 .gate-card .mono{margin:6px 0 28px}
 .gate-to{color:var(--mist);margin:0 0 4px;font-size:.92rem}
@@ -94,13 +95,16 @@ h2{font-family:var(--display);font-style:italic;font-size:clamp(1.9rem,7vw,2.5re
 .photo img{width:100%;height:100%;object-fit:cover;display:block}
 .photo .ph{position:absolute;inset:0;display:grid;place-items:center;color:var(--mist);
   font-size:.72rem;letter-spacing:.24em;text-transform:uppercase}
-.hero .photo{aspect-ratio:4/5;width:min(340px,100%);margin:0 auto 36px;border-radius:170px 170px 4px 4px} /* arch */
+.invite .photo{aspect-ratio:4/5;width:min(340px,100%);margin:0 auto 36px;border-radius:170px 170px 4px 4px} /* arch */
 
 /* Hero */
 .names{margin:0 0 22px}
-.names .logo{width:min(220px,62%)}
+.names .logo{width:min(170px,46%)}
 .names .mono{font-size:clamp(3rem,15vw,4.6rem)}
 .hero-date{font-family:var(--display);font-size:1.25rem;letter-spacing:.12em;color:var(--zari-soft);margin:0 0 4px}
+.hero{padding-block:36px 40px}
+.rsvp{padding-top:44px}
+.hero-time{font-size:.92rem;color:var(--jasmine);margin:0 0 10px}
 .hero-place{text-wrap:balance;font-size:.8rem;text-transform:uppercase;letter-spacing:.24em;color:var(--mist);margin:0}
 
 .hero-place a{color:inherit;text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--zari) 50%,transparent);padding-bottom:2px}
@@ -217,6 +221,10 @@ footer .thanks{font-family:var(--display);font-style:italic;font-size:1.3rem;mar
 footer .contact{color:var(--mist);font-size:.88rem;margin:0}
 
 /* Music button */
+.rsvp-fab{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:40;
+  height:48px;padding:0 30px;display:flex;align-items:center;border-radius:24px;box-shadow:0 6px 18px rgba(60,40,10,.22)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+#rsvp{scroll-margin-top:12px}
 #music{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));width:48px;height:48px;border-radius:50%;
   background:var(--silk-2);border:1px solid var(--zari);color:var(--zari-soft);display:grid;place-items:center;
   cursor:pointer;padding:0;z-index:40}
@@ -240,7 +248,10 @@ footer .contact{color:var(--mist);font-size:.88rem;margin:0}
     <div class="mono" data-mono></div>
     <p class="gate-to">Lovingly invited</p>
     <p class="gate-guest" id="gate-guest"></p>
-    <button class="btn" id="open">Open invitation</button>
+    <div class="gate-actions">
+      <button class="btn" id="open">Open invitation</button>
+      <button class="btn ghost" id="open-rsvp">RSVP now</button>
+    </div>
   </div>
 </div>
 
@@ -250,92 +261,22 @@ footer .contact{color:var(--mist);font-size:.88rem;margin:0}
 
   <!-- 1 · Hero -->
   <section class="hero">
-    <div class="photo" data-photo="hero" data-label="Your photo"></div>
     <p class="eyebrow">Together with their families</p>
     <h1 class="names"><span class="mono" data-mono></span></h1>
     <p class="hero-date" data-t="dateShort"></p>
+    <p class="hero-time" id="hero-time"></p>
     <p class="hero-place"><a id="hero-map" target="_blank" rel="noopener"></a></p>
   </section>
 
   <div class="zari"></div>
 
-  <!-- 2 · Invitation + Countdown -->
-  <section class="invite">
-    <h2>Join us as we begin forever</h2>
-    <p class="lede">With joy in our hearts, we invite you to celebrate our wedding and bless us as we begin this new chapter together.</p>
-    <div class="count" role="timer" aria-label="Countdown to the wedding">
-      <div><b id="cd-d">0</b><small>Days</small></div>
-      <div><b id="cd-h">0</b><small>Hours</small></div>
-      <div><b id="cd-m">0</b><small>Minutes</small></div>
-      <div><b id="cd-s">0</b><small>Seconds</small></div>
-    </div>
-  </section>
-
-  <div class="zari"></div>
-
-  <!-- 3 · The couple -->
-  <section class="couple">
-    <p class="eyebrow">The couple</p>
-    <h2>Two families, one celebration</h2>
-    <div class="pair">
-      <div class="person">
-        <div class="photo" data-photo="groom" data-label="Groom"></div>
-        <h3 data-t="groomFull"></h3>
-        <p data-t="groomLine"></p>
-      </div>
-      <div class="person">
-        <div class="photo" data-photo="bride" data-label="Bride"></div>
-        <h3 data-t="brideFull"></h3>
-        <p data-t="brideLine"></p>
-      </div>
-    </div>
-  </section>
-
-  <div class="zari"></div>
-
-  <!-- 4 · When & where -->
-  <section class="where">
-    <p class="eyebrow">When &amp; where</p>
-    <h2>Celebrate with us</h2>
-    <div class="events" id="events"></div>
-  </section>
-
-  <div class="zari"></div>
-
-  <!-- 4b · Colours of our day -->
-  <section class="colours">
-    <p class="eyebrow">Dress code</p>
-    <h2 id="colours-title"></h2>
-    <p class="subtitle" id="colours-sub"></p>
-    <div class="shades" id="shades"></div>
-  </section>
-
-  <div class="zari"></div>
-
-  <!-- 5 · Gallery -->
-  <section class="gallery">
-    <p class="eyebrow">Moments</p>
-    <h2>A few of our favourites</h2>
-    <div class="grid" id="gallery"></div>
-  </section>
-
-  <div class="zari"></div>
-
-  <!-- 6 · RSVP -->
+  <!-- 2 · RSVP (first, so guests can respond straight away) -->
   <section class="rsvp" id="rsvp">
     <p class="eyebrow">RSVP</p>
     <h2>Will you join us?</h2>
-    <p class="lede">Kindly let us know so we can plan for everyone.</p>
+    <p class="lede">Kindly let us know who's coming. It takes less than a minute and helps us plan for everyone.</p>
 
     <form class="form" id="rsvp-form">
-      <label class="field">
-        <span class="label">Your name</span>
-        <input type="text" name="name" maxlength="80" required autocomplete="name">
-      </label>
-      <label class="field">
-        <span class="label">Phone</span>
-        <input type="tel" name="phone" maxlength="20" autocomplete="tel" inputmode="tel">
-      </label>
       <fieldset class="field" style="border:0;padding:0;margin:0">
         <legend class="label" style="margin-bottom:8px">Will you attend?</legend>
         <div class="toggle">
@@ -343,6 +284,10 @@ footer .contact{color:var(--mist);font-size:.88rem;margin:0}
           <input type="radio" name="attending" id="att-no" value="no"><label for="att-no">Sadly, no</label>
         </div>
       </fieldset>
+      <label class="field">
+        <span class="label">Your name</span>
+        <input type="text" name="name" maxlength="80" required autocomplete="name">
+      </label>
 
       <div id="count-block">
         <div class="counts">
@@ -372,6 +317,10 @@ footer .contact{color:var(--mist);font-size:.88rem;margin:0}
       </div>
 
       <label class="field">
+        <span class="label">Phone</span>
+        <input type="tel" name="phone" maxlength="20" autocomplete="tel" inputmode="tel">
+      </label>
+      <label class="field">
         <span class="label">Note <em>(optional)</em></span>
         <textarea name="message" maxlength="500" placeholder="Dietary needs, travel plans…"></textarea>
       </label>
@@ -385,7 +334,70 @@ footer .contact{color:var(--mist);font-size:.88rem;margin:0}
 
   <div class="zari"></div>
 
-  <!-- 7 · Wishes wall -->
+  <!-- 3 · Invitation + Countdown -->
+  <section class="invite">
+    <div class="photo" data-photo="hero" data-label="Your photo"></div>
+    <h2>Join us as we begin forever</h2>
+    <p class="lede">With joy in our hearts, we invite you to celebrate our wedding and bless us as we begin this new chapter together.</p>
+    <div class="count" role="timer" aria-label="Countdown to the wedding">
+      <div><b id="cd-d">0</b><small>Days</small></div>
+      <div><b id="cd-h">0</b><small>Hours</small></div>
+      <div><b id="cd-m">0</b><small>Minutes</small></div>
+      <div><b id="cd-s">0</b><small>Seconds</small></div>
+    </div>
+  </section>
+
+  <div class="zari"></div>
+
+  <!-- 4 · The couple -->
+  <section class="couple">
+    <p class="eyebrow">The couple</p>
+    <h2>Two families, one celebration</h2>
+    <div class="pair">
+      <div class="person">
+        <div class="photo" data-photo="groom" data-label="Groom"></div>
+        <h3 data-t="groomFull"></h3>
+        <p data-t="groomLine"></p>
+      </div>
+      <div class="person">
+        <div class="photo" data-photo="bride" data-label="Bride"></div>
+        <h3 data-t="brideFull"></h3>
+        <p data-t="brideLine"></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="zari"></div>
+
+  <!-- 5 · When & where -->
+  <section class="where">
+    <p class="eyebrow">When &amp; where</p>
+    <h2>Celebrate with us</h2>
+    <div class="events" id="events"></div>
+  </section>
+
+  <div class="zari"></div>
+
+  <!-- 6 · Colours of our day -->
+  <section class="colours">
+    <p class="eyebrow">Dress code</p>
+    <h2 id="colours-title"></h2>
+    <p class="subtitle" id="colours-sub"></p>
+    <div class="shades" id="shades"></div>
+  </section>
+
+  <div class="zari"></div>
+
+  <!-- 7 · Gallery -->
+  <section class="gallery">
+    <p class="eyebrow">Moments</p>
+    <h2>A few of our favourites</h2>
+    <div class="grid" id="gallery"></div>
+  </section>
+
+  <div class="zari"></div>
+
+  <!-- 8 · Wishes wall -->
   <section class="wish-wall" id="wishes">
     <p class="eyebrow">Wishes</p>
     <h2>Leave us a blessing</h2>
@@ -409,7 +421,7 @@ footer .contact{color:var(--mist);font-size:.88rem;margin:0}
 
   <div class="zari"></div>
 
-  <!-- 8 · Footer -->
+  <!-- 9 · Footer -->
   <footer>
     <div class="mono" data-mono></div>
     <p class="thanks">With love and gratitude</p>
@@ -417,6 +429,8 @@ footer .contact{color:var(--mist);font-size:.88rem;margin:0}
   </footer>
 
 </main>
+
+<a class="btn rsvp-fab" id="rsvp-fab" href="#rsvp" hidden>RSVP</a>
 
 <button id="music" aria-label="Play music" hidden>
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -509,14 +523,39 @@ if (CONFIG.song) {
 // Opening screen: guest name from ?to=
 const guest = (new URLSearchParams(location.search).get("to") || "").trim().slice(0, 60) || "Family & Friends";
 $("#gate-guest").textContent = guest;
-$("#open").addEventListener("click", () => {
+let gateOpen = false;
+function openGate() {
+  gateOpen = true;
   $("#gate").classList.add("gone");
   document.body.classList.remove("locked");
   if (audio) audio.play().catch(() => {});
+  updateFab();
+}
+$("#open").addEventListener("click", openGate);
+$("#open-rsvp").addEventListener("click", () => {
+  openGate();
+  $("#rsvp").scrollIntoView();
+  $("#rsvp-form").hidden || $("#att-yes").focus({ preventScroll: true });
 });
+
+// Floating RSVP button: shown until the guest responds, hidden while the RSVP section is on screen
+function updateFab() {
+  const r = $("#rsvp").getBoundingClientRect();
+  const rsvpInView = r.top < innerHeight * 0.85 && r.bottom > innerHeight * 0.15;
+  $("#rsvp-fab").hidden = !gateOpen || rsvpInView || !$("#rsvp-done").hidden;
+}
+addEventListener("scroll", updateFab, { passive: true });
+$("#rsvp-fab").addEventListener("click", e => {
+  e.preventDefault();
+  $("#rsvp").scrollIntoView();
+  $("#rsvp-fab").hidden = true;
+  $("#rsvp-form").hidden || $("#att-yes").focus({ preventScroll: true });
+});
+addEventListener("resize", updateFab);
 
 // Map link on hero place line
 $("#hero-map").href = CONFIG.events[0].map;
+$("#hero-time").textContent = `${CONFIG.events[0].date.split(",")[0]} · ${CONFIG.events[0].time}`;
 $("#hero-map").innerHTML = CONFIG.placeShort.split(" · ").map(p => `<span>${esc(p)}</span>`).join(" · ");  // break only between places
 
 // Event cards
@@ -601,6 +640,7 @@ function showSummary(p) {
     <dl>${rows.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>
     <button class="btn ghost" type="button" id="rsvp-edit">Change my response</button>`;
   form.hidden = true;
+  updateFab();
   $("#rsvp-done").hidden = false;
   $("#rsvp-edit").addEventListener("click", () => editRsvp(p));
 }
@@ -616,6 +656,7 @@ function editRsvp(p) {
   renderCounts();
   $("#rsvp-done").hidden = true;
   form.hidden = false;
+  updateFab();
   form.name.focus();
 }
 
