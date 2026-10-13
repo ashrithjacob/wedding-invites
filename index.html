@@ -115,6 +115,9 @@ h2{font-family:var(--display);font-style:italic;font-size:clamp(1.9rem,7vw,2.5re
 .hero.has-bg .hero-inner{text-shadow:0 1px 14px rgba(0,0,0,.35)}
 .hero.has-bg .eyebrow{color:#f1dca0}
 .hero.has-bg .logo{background:#f1dca0;filter:drop-shadow(0 2px 10px rgba(0,0,0,.35))}
+.hero-tagline{font-family:var(--display);font-style:italic;font-size:clamp(1.6rem,6.6vw,2.2rem);line-height:1.2;
+  text-wrap:balance;margin:-6px 0 18px}
+.hero.has-bg .hero-tagline{color:#f6f1e4}
 .hero.has-bg .hero-date{color:#f6f1e4}
 .hero.has-bg .hero-time{color:#efe6d2}
 .hero.has-bg .hero-place{color:#e6dcc4}
@@ -290,6 +293,7 @@ footer .contact{color:var(--mist);font-size:.88rem;margin:0}
     <div class="hero-inner" id="hero-inner">
       <p class="eyebrow">Together with their families</p>
       <h1 class="names"><span class="mono" data-mono></span></h1>
+      <p class="hero-tagline">Join us as we begin forever</p>
       <p class="hero-date" data-t="dateShort"></p>
       <p class="hero-time" id="hero-time"></p>
       <p class="hero-place"><a id="hero-map" target="_blank" rel="noopener"></a></p>
@@ -368,7 +372,7 @@ footer .contact{color:var(--mist);font-size:.88rem;margin:0}
   <!-- 3 · Invitation + Countdown -->
   <section class="invite">
     <div class="photo" data-photo="hero" data-label="Your photo"></div>
-    <h2>Join us as we begin forever</h2>
+    <p class="eyebrow">Counting the days</p>
     <p class="lede">With joy in our hearts, we invite you to celebrate our wedding and bless us as we begin this new chapter together.</p>
     <div class="count" role="timer" aria-label="Countdown to the wedding">
       <div><b id="cd-d">0</b><small>Days</small></div>
